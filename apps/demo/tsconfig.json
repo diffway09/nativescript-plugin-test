@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
-      "@demo/shared": ["../../tools/demo/index.ts"]
+      "@demo/shared": ["../../tools/demo/index.ts"],
+      "@plugin-seed/*": ["../../packages/*"],
+      "@plugin-seed/image-editor": ["../../packages/image-editor/index.d.ts"]
     }
   }
 }

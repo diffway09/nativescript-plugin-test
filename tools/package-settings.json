@@ -1,0 +1,17 @@
+{
+  "name": "@plugin-seed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diffway09/nativescript-plugin-test.git"
+  },
+  "keywords": ["NativeScript", "JavaScript", "TypeScript", "iOS", "Android"],
+  "author": {
+    "name": "Natchanun Yindeesuk",
+    "email": "diffway09@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/diffway09/nativescript-plugin-test/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/diffway09/nativescript-plugin-test"
+}

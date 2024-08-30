@@ -1,0 +1,65 @@
+{
+  "name": "image-editor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/image-editor",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/image-editor",
+        "tsConfig": "packages/image-editor/tsconfig.json",
+        "packageJson": "packages/image-editor/package.json",
+        "main": "packages/image-editor/index.d.ts",
+        "assets": [
+          "packages/image-editor/*.md",
+          "packages/image-editor/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/image-editor/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts image-editor"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/image-editor"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages image-editor"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/image-editor/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

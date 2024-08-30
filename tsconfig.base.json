@@ -20,7 +20,10 @@
       }
     ],
     "paths": {
-      "@demo/shared": ["tools/demo/index.ts"]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@plugin-seed/*": ["packages/*"],
+      "@plugin-seed/image-editor": ["packages/image-editor/index.d.ts"],
+      "@plugin-seed/image-editor/angular": ["packages/image-editor/angular/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

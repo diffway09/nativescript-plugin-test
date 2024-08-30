@@ -55,12 +55,19 @@ module.exports = {
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@plugin-seed/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @plugin-seed/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
+    '@plugin-seed': {
+      // @plugin-seed/image-editor
+      'image-editor': {
+        build: {
+          script: 'nx run image-editor:build.all',
+          description: '@plugin-seed/image-editor: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -71,6 +78,10 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
+      'image-editor': {
+        script: 'nx run image-editor:focus',
+        description: 'Focus on @plugin-seed/image-editor',
+      },
       reset: {
         script: 'nx g @nativescript/plugin-tools:focus-packages',
         description: 'Reset Focus',
